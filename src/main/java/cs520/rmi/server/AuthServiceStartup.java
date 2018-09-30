@@ -8,6 +8,7 @@ public class AuthServiceStartup {
     public static void main( String[] args ) throws Exception
     {
         Registry registry = LocateRegistry.createRegistry( 4048 );
+        System.out.print( "Service registry listening on port 4048 ..." );
         registry.rebind( "AuthService", new AuthServiceImpl() );
     }
 

@@ -14,78 +14,23 @@
           <artifactId>webservices-rt</artifactId>
           <version>2.3.1</version>
       </dependency>
+      <dependency>
+          <groupId>com.sun.activation</groupId>
+          <artifactId>javax.activation</artifactId>
+          <version>1.2.0</version>
+      </dependency>
   </dependencies>
   <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
+        <version>3.8.0</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.jvnet.jax-ws-commons</groupId>
-        <artifactId>jaxws-maven-plugin</artifactId>
-        <version>2.1</version>
-        <executions>
-          <execution>
-            <id>wsimport</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>wsimport</goal>
-            </goals>
-            <configuration>
-              <wsdlUrls>
-                <wsdlUrl>http://localhost:8080/ws/hash?wsdl</wsdlUrl>
-              </wsdlUrls>
-              <sourceDestDir>${project.build.sourceDirectory}</sourceDestDir>
-              <packageName>cs520.ws.client</packageName>
-              <keep>true</keep>
-              <verbose>true</verbose>
-            </configuration>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>com.sun</groupId>
-              <artifactId>tools</artifactId>
-              <scope>system</scope>
-              <systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath>
-              <version>1.6</version>
-          </dependency>
-        </dependencies>
-      </plugin>
     </plugins>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.jvnet.jax-ws-commons</groupId>
-                    <artifactId>jaxws-maven-plugin</artifactId>
-                    <versionRange>[2.1,)</versionRange>
-                    <goals>
-                      <goal>wsimport</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore />
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
 </project>
